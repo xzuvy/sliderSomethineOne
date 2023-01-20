@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var width  : Double = 130
+    @State var height : Double = 130
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+            Spacer()
+            Spacer()
+            Rectangle()
+                .frame(width: width, height: height)
+                .foregroundColor(Color.orange)
+            Spacer()
+            Spacer()
+            Text("Width:")
+            Slider(value: $width, in: 20...200)
+                .accentColor(Color.green)
+                .tint(Color.pink)
+            Text("Height:")
+        Slider(value: $height, in: 20...200)
+            .accentColor(Color.yellow)
+       
+            
+            Button("Reset"){
+                self.width = 130
+                self.height = 130
+            }
+        }.padding()
+            
     }
 }
 
